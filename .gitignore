@@ -2,6 +2,9 @@
 secrets.py
 ServidorOne/static/
 
+ServidorTwo/static/
+ServidorTwo/media/
+
 ### Django ###
 *.log
 *.pot

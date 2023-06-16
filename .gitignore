@@ -1,5 +1,6 @@
 ### PROPIAS ###
-
+secrets.py
+ServidorOne/static/
 
 ### Django ###
 *.log

@@ -44,9 +44,6 @@
               <a class="nav-link" href="#proyects">Proyectos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contrato">¿Por qué contratarme?</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#certificaciones">Certificados</a>
             </li>
             <li class="nav-item">
@@ -71,35 +68,18 @@
       <div class="container">
         <h2>Acerca de mí</h2>
         <div class="container">
-          <img src="{% static 'main/img/estuardodev.webp' %}" width="" class="imgabout" alt="Fotografía de Estuardo Ramírez, estuardodev">
+          
+          <img src="{% static 'main/img/' %}{{portafolio.imagen}}" width="" class="imgabout" alt="Fotografía de Estuardo Ramírez, estuardodev">
           <p><b>¡Soy Estuardo Ramírez un gusto tenerte por acá! Te hablaré sobre mí.</b></p>
         </div>
-        <p class="justy">Soy un joven guatemalteco apasionado por la programación y todo lo relacionado con el ámbito de la tecnología,
-          empecé a muy temprana edad a interesarme por como funcionaban las computadoras y luego de eso fue donde empezó todo.
-          <br>
-          Uno de los primeros lenguajes que probé fue Java, me gusta mucho. Pero un lenguaje que me enamoró al final de todo fue Python.
-          Hoy en día soy programador en Python, es uno de los lenguajes más populares y utilizados a nivel mundial, debido a su
-          facilidad de uso y su manera de funcionar.
-          <br>
-          Soy muy apasionado por todo lo que es programación y tecnología, me gusta mucho aprender cosas nuevas y más si eso me ayuda a 
-          mejorar como profesional y sobre todo como programador. Durante mi camino de aprendizaje tuve varias caídas, donde sentía que ya no podía más 
-          o peor aún, que esto no era para mí. Pero luego de esa etapa tan dura, logre aprender Python como un profesional, donde 
-          ahora todo problema tiene solución.
-          <br>
-          Una de mis mayores emociones cuando empezaba a aprender a programar, era el poder crear juegos o programas que cambiaran el sistema.
-          Luego de eso, se aclararon mis ideas y hoy en día, mis emociones están dirigidas a todo lo que está relacionado con el Backend, no para cambiar el sistema, más 
-          bien, para mejorar el sistema.
-        </p>
+        <p class="justy">{{portafolio.texto_largo|safe}}</p>
         <p>
           Soy un programador en Python, pero también tengo más conocimientos que pueden ser útiles en cualquier momento como:
           <br>
           <ul>
-            <li>Desarrollo Backend con Python</li>
-            <li>Desarrollo de Sitios Web</li>
-            <li>Manejo de distintos sistemas operativos como Linux, Windows</li>
-            <li>Conocimiento de Git y GitHub</li>
-            <li>Programación con Java</li>
-            <li>Utilización de Base de Datos Relacionales</li>
+            {% for i in habilidades %}
+              <li>{{i.descHabilidad}}</li>
+            {% endfor %}
           </ul>
           <!--<form action="download_cv" method="get">
             <button type="submit" class="btn btn-dark">DESCARGAR CV</button>
@@ -160,64 +140,6 @@
     </section>
     <!--Fin de Proyectos-->
   
-    <!--Inicio de porque contratarme-->
-    <br>
-    <section id="contrato">
-      <div class="container">
-        <h1>¿Por qué contratarme?</h1>
-        <div class="container">
-          <p>Se que puede que te preguntes, ¿por qué contratar a Estuardo?, te daré unos motivos para que veas porque puedo ser un buen contrato.</p>
-        </div>
-        <div class="container">
-          <div class="contract">
-            <div class="card-contrato">
-              <div class="head-contrato">
-                <div class="circle-contrato">
-                  <div class="img-contrato">
-                    <img src="{% static 'main/img/apasionado.webp' %}" width="" alt="imagen indicativa de apasionado">
-                  </div>
-                </div>
-              </div>
-              <div class="description-contrato">
-                <h3>Apasionado</h3>
-                <h4></h4>
-                <p>Soy una persona apasionada por lo que realizo y me esfuerzo para que todo lo que realice este bien para todo quien lo necesite.</p>
-              </div>
-            </div>
-            <div class="card-contrato">
-              <div class="head-contrato">
-                <div class="circle-contrato">
-                  <div class="img-contrato">
-                    <img src="{% static 'main/img/responsable.webp' %}" width="" alt="Imagen representativa de una persona responsable">
-                  </div>
-                </div>
-              </div>
-              <div class="description-contrato">
-                <h3>Responsable</h3>
-                <h4></h4>
-                <p>Soy una persona muy responsable con lo que me asignan o lo que me propongo, trato de ser muy organizado estar siempre al 100.</p>
-              </div>
-            </div>
-            <div class="card-contrato">
-              <div class="head-contrato">
-                <div class="circle-contrato">
-                  <div class="img-contrato">
-                    <img src="{% static 'main/img/aprendiz.webp' %}" width="" alt="Imagen representativa de una persona autodidacta">
-                  </div>
-                </div>
-              </div>
-              <div class="description-contrato">
-                <h3>Aprendíz</h3>
-                <h4></h4>
-                <p>Me gusta estar aprendiendo cosas nuevas todo el tiempo. Si es necesario aprender algo, lo hare y me esforzare hasta lograrlo al máximo.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Fin de por que contratarme-->
-
     <!--Inicio de Certificaciones-->
     <br>
     <section id="certificaciones">
@@ -229,48 +151,23 @@
         <div class="container">
           <p>Estas certificaciones son certificadas por la plataforma de educación en línea más grande de Latinoamérica Platzi. <a href="https://platzi.com/blog/que-es-platzi/" target="_blank">Acerca de Platzi</a></p>
         </div>
-        <br>
+        <br>  
         <div class="row"> 
+
+          {% for i in certificaciones %}
+          
           <div class="col-sm-4 a">
             <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/cursoprofesionaldepython.webp' %}" class="card-img-top" alt="Curso profesional de Python Platzi">
+              <img src="{% static 'main/img/' %}{{i.imagen}}" class="card-img-top" alt="Curso profesional de Python Platzi">
               <div class="card-body">
-                <h5 class="card-title">Curso Profesional de Python</h5>
-                  <p class="card-text">Domina los conceptos que te llevarán a las condiciones necesarias para iniciar tu camino en la carrera de la industria tecnológica que prefieras: Backend, Ciencia de Datos, Inteligencia Artificial.</p>
-                  <a href="https://platzi.com/p/estuardodev/curso/2397-python-profesional/diploma/detalle/" target="_blank" class="btn btn-primary">Ver certificado</a>
+                <h5 class="card-title">{{i.titulo}}</h5>
+                  <p class="card-text">{{i.descripcion}}</p>
+                  <a href="{{i.enlace}}" target="_blank" class="btn btn-primary">Ver certificado</a>
               </div>
             </div>
           </div>
-          <div class="col-sm-4 b">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/poo.webp' %}" class="card-img-top" alt="Curso de Programación Orientada a Objetos Platzi">
-              <div class="card-body">
-                <h5 class="card-title">Curso de Programación Orientada a Objetos</h5>
-                <p class="card-text">El elegido para esta tarea: tú. Sé parte de la generación que logra cambiar el mundo a través de ideas innovadoras, porque la diferencia entre ser testigo del cambio y ser parte de él comienza con Platzi y aprende POO.</p>
-                <a href="https://platzi.com/p/estuardodev/curso/1474-oop/diploma/detalle/" target="_blank" class="btn btn-primary">Ver certificado</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 c">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/django-intermedio.webp' %}" class="card-img-top" alt="Curso Profesional de Git y GitHub Platzi">
-              <div class="card-body">
-                <h5 class="card-title">Curso Intermedio de Django</h5>
-                <p class="card-text">En este segundo curso de la saga de Django analizarás los conceptos fundamentales sobre el Testing. Mejorarás el administrador de Django con nuevos atributos, implementarás archivos estáticos en tu proyecto.</p>
-                <a href="https://platzi.com/p/estuardodev/curso/2728-django-intermedio/diploma/detalle/" target="_blank" class="btn btn-primary">Ver certificado</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 c">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/gitygithub.webp' %}" class="card-img-top" alt="Curso Profesional de Git y GitHub Platzi">
-              <div class="card-body">
-                <h5 class="card-title">Curso Profesional de Git y GitHub</h5>
-                <p class="card-text">Deja de versionar tus proyectos usando tu propio sistema de control de versiones. Mejor usa Git, el sistema de control de versiones por excelencia que utiliza la industria tecnológica.  Aprende a trabajar con git y github.</p>
-                <a href="https://platzi.com/p/estuardodev/curso/1557-git-github/diploma/detalle/" target="_blank" class="btn btn-primary">Ver certificado</a>
-              </div>
-            </div>
-          </div>
+
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -280,22 +177,7 @@
 
     <a href="#" class="btn btn-primary btn-lg" id="btn-subir">Volver arriba</a>
 
-    <br>
     <hr>
-    <br>
-    <!--Notificación de captura de IP-->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-      </symbol>
-    </svg>
-    <div class="alert alert-primary d-flex align-items-center" role="alert">
-      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-      <div>
-        Por seguridad hemos capturado tu IP: 
-      </div>
-    </div>
-    <!--Fin de la notificación de IP-->
 
     <!--Notificación de Cookies-->    
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
@@ -334,19 +216,9 @@
     <!--Fin del footer-->
 
     <script src="{% static 'main/js/btn.js' %}"></script>
+    <script src="{% static 'main/js/cookie.js'%}"></script>
 
     <!--Boostrap-->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script>
-      const toastTrigger = document.getElementById('liveToastBtn')
-      const toastLiveExample = document.getElementById('liveToast')
-      if (toastTrigger) {
-        toastTrigger.addEventListener('click', () => {
-        const toast = new bootstrap.Toast(toastLiveExample)
-        toast.show()
-        })
-      }
-    </script>
   </body>
 </html>

@@ -1,10 +1,19 @@
 from django.shortcuts import render
 from django.views import generic
 
+# DB
+from .models import Portafolio, Habilidades, Certificaciones
+
 # Create your views here.
 def IndexView(request):
     template_name = "main/index.html"
-    return render(request, template_name)
+
+    portafolio = Portafolio.objects.get(id=1)
+    habilidades = Habilidades.objects.all()
+    certificaciones = Certificaciones.objects.all()
+
+    context = {'portafolio': portafolio, 'habilidades': habilidades, 'certificaciones': certificaciones}
+    return render(request, template_name, context)
 
 class AtributionView(generic.TemplateView):
     template_name: str = "terceros/atribucion.html"

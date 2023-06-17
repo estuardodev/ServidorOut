@@ -6,7 +6,7 @@ class MapaDeSitio(Sitemap):
     priority = 0.9
     protocol = 'https'
     def items(self):
-        return Articulo.objects.all()
+        return Articulo.objects.all().order_by("-id")
     def lastmod(self, obj):
         return obj.create
         

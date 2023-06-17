@@ -16,10 +16,10 @@ def IndexView(request):
     return render(request, template_name, context)
 
 class AtributionView(generic.TemplateView):
-    template_name: str = "terceros/atribucion.html"
+    template_name = "terceros/atribucion.html"
 
 class Error404View(generic.TemplateView):
-    template_name: str = "error/404/404.html"
+    template_name = "error/404/404.html"
 
 class Error500View(generic.TemplateView):
-    template_name: str = "error/500/500.html"
+    template_name = "error/500/500.html"

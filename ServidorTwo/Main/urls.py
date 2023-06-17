@@ -22,5 +22,6 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('feed/', views.RssView, name='ultimas_noticias_feed'),
     path('ads.txt', TemplateView.as_view(template_name="ads.txt", content_type="text/plain")),
     path('app-ads.txt', TemplateView.as_view(template_name="app-ads.txt", content_type="text/plain")),
+    path('BingSiteAuth.xml', TemplateView.as_view(template_name="BingSiteAuth.xml", content_type="text/xml")),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]

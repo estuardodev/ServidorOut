@@ -14,6 +14,7 @@ urlpatterns = [
 
     path('robots.txt', TemplateView.as_view(template_name="main/robots.txt", content_type="text/plain")),
     path('sitemap.xml', TemplateView.as_view(template_name="main/sitemap.xml", content_type="text/xml")),
+    path('BingSiteAuth.xml', TemplateView.as_view(template_name="main/BingSiteAuth.xml", content_type="text/xml")),
 ]
 
 # Error 404

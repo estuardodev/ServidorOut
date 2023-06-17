@@ -8,9 +8,10 @@ from Main.views import AtributionView, Error404View, Error500View
 app_name = 'portafolio'
 
 urlpatterns = [
-    path('estuardodev_admin_site/', admin.site.urls),
     path('', include('Main.urls')),
+    path('estuardodev_admin_site/', admin.site.urls),
     path('terceros/', AtributionView.as_view()),
+    path('legal/', include('Legal.urls')),
 
     path('robots.txt', TemplateView.as_view(template_name="main/robots.txt", content_type="text/plain")),
     path('sitemap.xml', TemplateView.as_view(template_name="main/sitemap.xml", content_type="text/xml")),

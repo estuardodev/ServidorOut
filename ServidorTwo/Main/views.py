@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Articulo
 from django.db.models import Q, Sum
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+
 
 # Create your views here.
 def IndexView(request):
@@ -64,8 +67,6 @@ def allView(request):
     context = {'all': articulos, 'no': no}
     return render(request, template_name, context)
 
-from django.http import HttpResponse
-from django.template.loader import render_to_string
 
 def RssView(request):
     data = Articulo.objects.all()

@@ -25,3 +25,9 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('BingSiteAuth.xml', TemplateView.as_view(template_name="BingSiteAuth.xml", content_type="text/xml")),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
+
+# Error 404
+handler404 = views.Error404View.as_view()
+
+# Error 500
+handler500 = views.Error500View.as_view()

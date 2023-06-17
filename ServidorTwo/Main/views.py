@@ -3,6 +3,7 @@ from .models import Articulo
 from django.db.models import Q, Sum
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from django.views import generic
 
 
 # Create your views here.
@@ -78,3 +79,9 @@ def RssView(request):
     xml_content = render_to_string('rss.xml', context)
 
     return HttpResponse(xml_content, content_type='text/xml')
+
+class Error404View(generic.TemplateView):
+    template_name = "error/404/404.html"
+
+class Error500View(generic.TemplateView):
+    template_name = "error/500/500.html"

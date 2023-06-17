@@ -27,30 +27,6 @@
         <link rel="stylesheet" type="text/css" href="{% static 'blog/css/dark_mode.css' %}">
 
         <script src="{% static 'blog/js/limitar.js' %}"></script>
-
-        <!--ADS-->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6691938542138083"
-        crossorigin="anonymous"></script>
-        
-        <!--Google analitycs-->
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECXGLX9D8S"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-ECXGLX9D8S');
-        </script>
-        
-        <!--Microsoft Clarity-->
-        <script type="text/javascript">
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "f9f4h2j2ts");
-        </script>
     </head>
     <body class="dark">
         <!--NAVBAR-->
@@ -60,7 +36,7 @@
                  
                 <a class="navbar-brand" href="https://blog.estuardodev.com">
                     <img src="{% static 'blog/img/blogdev.png' %}" alt="Blog Dev Icon" width="30" height="24">
-                    <span class="navbar-brand mb-0 h1">BlogDev</span>
+                    <span class="navbar-brand mb-0 h1">estuardodev | Blog</span>
                 </a>
                 
             </div>
@@ -71,22 +47,6 @@
             <h1>Bloque de artículos</h1><hr>
             <p>¡Encuentra aquí todos nuestros articulos!</p><hr>
         </div>
-        {% if message_alert == True %}
-    
-            <!--Notificación de captura de IP-->
-            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </symbol>
-            </svg>
-            <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                <div>
-                El servidor está funcionando al 80% de su capacidad. Es posible que se experimenten retrasos o interrupciones.
-                </div>
-            </div>
-
-        {% endif %}
 
 
 

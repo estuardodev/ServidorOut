@@ -63,3 +63,17 @@ def allView(request):
     # Retorno del template
     context = {'all': articulos, 'no': no}
     return render(request, template_name, context)
+
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+
+def RssView(request):
+    data = Articulo.objects.all()
+
+    context = {
+        'data': data,
+    }
+
+    xml_content = render_to_string('rss.xml', context)
+
+    return HttpResponse(xml_content, content_type='text/xml')

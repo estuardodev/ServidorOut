@@ -7,7 +7,7 @@ from Main.views import AtributionView, Error404View, Error500View
 app_name = 'portafolio'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('estuardodev_admin_site/', admin.site.urls),
     path('', include('Main.urls')),
     path('terceros/', AtributionView.as_view()),
 ]

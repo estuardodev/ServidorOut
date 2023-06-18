@@ -133,7 +133,7 @@
                   />
                   <div class="card-body">
                     <h3 class="card-title text-center">{{i.titulo}}</h3>
-                    <p class="card-text text-center">{{i.descripcion}}</p>
+                    <p class="card-text">{{i.descripcion}}</p>
                     <a
                       href="{{i.enlace}}"
                       target="_blank"
@@ -159,33 +159,26 @@
                 >
               </p>
             </div>
-            <div class="container">
-              <p>
-                Estas certificaciones son certificadas por la plataforma de
-                educación en línea más grande de Latinoamérica Platzi.
-                <a href="https://platzi.com/blog/que-es-platzi/" target="_blank"
-                  >Acerca de Platzi</a
-                >
-              </p>
-            </div>
+            <div class="container ">
+            
             <br />
-            <div class="row">
+            <div class="row justify-content-center">
               {% for i in certificaciones %}
 
-              <div class="col-sm-4 a">
-                <div class="card" style="width: 18rem">
+              <div class="col-md-4 pb-4 ">
+                <div class="card mx-auto" style="width: 18rem">
                   <img
                     src="{% static 'main/img/' %}{{i.imagen}}"
                     class="card-img-top"
                     alt="Curso profesional de Python Platzi"
                   />
-                  <div class="card-body">
+                  <div class="card-body ">
                     <h5 class="card-title">{{i.titulo}}</h5>
                     <p class="card-text">{{i.descripcion}}</p>
                     <a
                       href="{{i.enlace}}"
                       target="_blank"
-                      class="btn btn-primary"
+                      class="btn btn-primary d-block mx-auto text-center"
                       >Ver certificado</a
                     >
                   </div>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Portafolio, Habilidades, Certificaciones
+from .models import Portafolio, Habilidades, Certificaciones, Proyectos
 
 # Register your models here.
 admin.site.site_header = 'estuardodev'
@@ -24,3 +24,8 @@ class CertificacionesAdmin(admin.ModelAdmin):
 
 admin.site.register(Certificaciones, CertificacionesAdmin)
 
+class ProyectosAdmin(admin.ModelAdmin):
+    list_display = ('titulo',)
+    fields = ('titulo', 'descripcion', 'texto_enlace', 'enlace', 'imagen', 'alt_imagen')
+
+admin.site.register(Proyectos, ProyectosAdmin)

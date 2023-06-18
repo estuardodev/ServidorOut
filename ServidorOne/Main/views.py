@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 
 # DB
-from .models import Portafolio, Habilidades, Certificaciones
+from .models import Portafolio, Habilidades, Certificaciones, Proyectos
 
 # Create your views here.
 def IndexView(request):
@@ -11,8 +11,9 @@ def IndexView(request):
     portafolio = Portafolio.objects.get(id=1)
     habilidades = Habilidades.objects.all()
     certificaciones = Certificaciones.objects.all()
+    proyectos = Proyectos.objects.all()
 
-    context = {'portafolio': portafolio, 'habilidades': habilidades, 'certificaciones': certificaciones}
+    context = {'portafolio': portafolio, 'habilidades': habilidades, 'certificaciones': certificaciones, 'proyectos': proyectos}
     return render(request, template_name, context)
 
 class AtributionView(generic.TemplateView):

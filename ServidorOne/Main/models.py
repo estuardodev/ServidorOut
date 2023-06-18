@@ -35,3 +35,18 @@ class Certificaciones(models.Model):
 
     def __str__(self) -> str:
         return self.titulo
+    
+class Proyectos(models.Model):
+    titulo = models.CharField(max_length=50, null=True, verbose_name="Título") 
+    descripcion = models.CharField(max_length=230, null=True, verbose_name="Descripción")
+    imagen = models.CharField(max_length=50, null=True, verbose_name="Imágen") 
+    texto_enlace = models.CharField(max_length=50, null=True, verbose_name="Texto del Enlace")
+    enlace = models.URLField(max_length=255, null=True, verbose_name="Enlace")
+    alt_imagen = models.CharField(max_length=50, null=True, verbose_name="Alt Imagen")
+
+    class Meta:
+        verbose_name = "Proyecto"
+        verbose_name_plural = "Proyectos"
+
+    def __str__(self) -> str:
+        return self.titulo

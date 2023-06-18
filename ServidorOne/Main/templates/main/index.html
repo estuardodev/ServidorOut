@@ -1,224 +1,318 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <!--Obligatorios-->
+    <!--Navegador-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Detalles del sitio-->
+    <meta
+      name="description"
+      content="Soy Estuardo Ramírez un programador y desarrollador web, más enfocado en el ámbito del backend con Python."
+    />
+    <meta
+      name="keywords"
+      content="Estuardo Ramírez, estuardodev, Estuardo Ramirez, EstuardoDev, Estuardodev, Estuardo, Estuardo Guatemala, estuardodev sitio web, estuardodev portafolio, Ramírez, Programador en Python, Desarrollador web, estuardodev Programador"
+    />
     <title>Portafolio | Estuardo Ramírez</title>
-    <meta name="description" content="Soy Estuardo Ramírez un programador y desarrollador web, más enfocado en el ámbito del backend con Python.">
-    <meta name="keywords" content="Estuardo Ramírez, estuardodev, Estuardo Ramirez, EstuardoDev, Estuardodev, Estuardo, Estuardo Guatemala, estuardodev sitio web, estuardodev portafolio, Ramírez, Programador en Python, Desarrollador web, estuardodev Programador">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <link rel="icon" href="{% static 'main/img/estuardodev.webp' %}">
-    <link rel="apple-touch-icon" href="{% static 'main/img/estuardodev.webp' %}">
 
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!--Iconos-->
+    <link rel="icon" href="{% static 'main/img/estuardodev.webp' %}" />
+    <link
+      rel="apple-touch-icon"
+      href="{% static 'main/img/estuardodev.webp' %}"
+    />
 
-    <!--Estilos Propios-->
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/form_style.css' %}">
+    <!--Inicio Estilos-->
 
+    <!--Bootstrap CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+
+    <!--Mios-->
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}" />
+
+    <!--Esilos CSS-->
+
+    <!--Fin Estilos-->
   </head>
   <body>
-    <nav class="navbar bg-light navbar-expand-lg " id="home">
-      <div class="container-fluid">
-        <a class="navbar-brand inactive" href="">
-          <img src="{% static 'main/img/estuardodev.webp' %}" width="" alt="Imagen de Estuardo" width="30" height="30" class="d-inline-block align-text-top">
-          Estuardo Ramírez
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about" id="liveToastBtn" >Acerca de mí</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#proyects">Proyectos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#certificaciones">Certificados</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://estuardodev.com" target="_blank">BLOG</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
-    <!--Imagen de portada-->
-    <img src="{% static 'main/img/portafolio.webp' %}" width="" class="portada" alt="Imagen de portada web de Estuardo Ramírez" srcset="{% static 'main/img/portafolio.webp' %} 1297w, {% static 'main/img/portafolio.webp' %} 800w, {% static 'main/img/portafolio.webp' %} 400w, {% static 'main/img/portafolio.webp' %} 350w, {% static 'main/img/portafolio.webp' %} 250w">
-    
-    <!--Acerca de mi-->
-    <div class="alert alert-success" role="alert">
-      ¡Ya puedes comprar mi <a href="https://www.udemy.com/course/curso-de-programacion-basica-con-python/" target="_blank" class="alert-link">Curso de Programación Básica con Python</a>! Haz clic en el enlace.
-    </div>
-    
-    <br>
-
-    <section id="about">
-      <div class="container">
-        <h2>Acerca de mí</h2>
+    <div class="container-fluid">
+      <!--Inicio Navbar-->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container">
-          
-          <img src="{% static 'main/img/' %}{{portafolio.imagen}}" width="" class="imgabout" alt="Fotografía de Estuardo Ramírez, estuardodev">
-          <p><b>¡Soy Estuardo Ramírez un gusto tenerte por acá! Te hablaré sobre mí.</b></p>
+          <a class="navbar-brand" href="#">Estuardo Ramírez</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#about" id="liveToastBtn"
+                  >Acerca de mi</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">Proyectos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#certificaciones">Certificados</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://estuardodev.com"
+                  target="_blank"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <p class="justy">{{portafolio.texto_largo|safe}}</p>
-        <p>
-          Soy un programador en Python, pero también tengo más conocimientos que pueden ser útiles en cualquier momento como:
-          <br>
+      </nav>
+
+      <!--Inicio Contenido-->
+      <div class="container" style="margin-top: 80px">
+        <div class="alert alert-success" role="alert">
+          ¡Ya puedes comprar mi
+          <a
+            href="https://www.udemy.com/course/curso-de-programacion-basica-con-python/"
+            target="_blank"
+            class="alert-link"
+            >Curso de Programación Básica con Python</a
+          >! Haz clic en el enlace.
+        </div>
+
+        <section id="about">
+          <h1>Acerca de mi</h1>
+          <hr />
+          <img
+            src="{% static 'main/img/' %}{{portafolio.imagen}}"
+            class="img-about"
+            alt="Foto mía"
+          />
+          <p style="text-align: justify">{{portafolio.texto_largo|safe}}</p>
+          <p>
+            Soy un programador en Python, pero también tengo más conocimientos
+            que pueden ser útiles en cualquier momento como:
+          </p>
           <ul>
             {% for i in habilidades %}
-              <li>{{i.descHabilidad}}</li>
+            <li>{{i.descHabilidad}}</li>
             {% endfor %}
           </ul>
-          <!--<form action="download_cv" method="get">
-            <button type="submit" class="btn btn-dark">DESCARGAR CV</button>
-          </form>-->
-        </p>
+        </section>
+        <hr />
+        <section id="projects">
+          <div class="container">
+            <h2>Proyectos</h2>
+            <div class="container">
+              <p><b>Permíteme mostrarte algunos de mis proyectos.</b></p>
+            </div>
+            <div class="row justify-content-center">
+              {% for i in proyectos %}
+              <div class="col-md-4 pb-4">
+                <div class="card mx-auto" style="width: 18rem">
+                  <img
+                    src="{% static 'main/img/' %}{{i.imagen}}"
+                    class="card-img-top"
+                    alt="{{i.alt_imagen}}"
+                  />
+                  <div class="card-body">
+                    <h3 class="card-title text-center">{{i.titulo}}</h3>
+                    <p class="card-text text-center">{{i.descripcion}}</p>
+                    <a
+                      href="{{i.enlace}}"
+                      target="_blank"
+                      class="btn btn-primary d-block mx-auto text-center"
+                      >{{i.texto_enlace}}</a
+                    >
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+        <hr />
+        <section id="certificaciones">
+          <div class="container">
+            <h2>Certificaciones</h2>
+            <div class="container">
+              <p>
+                <b
+                  >En esta sección encontraras las certificaciones que he
+                  obtenido.</b
+                >
+              </p>
+            </div>
+            <div class="container">
+              <p>
+                Estas certificaciones son certificadas por la plataforma de
+                educación en línea más grande de Latinoamérica Platzi.
+                <a href="https://platzi.com/blog/que-es-platzi/" target="_blank"
+                  >Acerca de Platzi</a
+                >
+              </p>
+            </div>
+            <br />
+            <div class="row">
+              {% for i in certificaciones %}
+
+              <div class="col-sm-4 a">
+                <div class="card" style="width: 18rem">
+                  <img
+                    src="{% static 'main/img/' %}{{i.imagen}}"
+                    class="card-img-top"
+                    alt="Curso profesional de Python Platzi"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{i.titulo}}</h5>
+                    <p class="card-text">{{i.descripcion}}</p>
+                    <a
+                      href="{{i.enlace}}"
+                      target="_blank"
+                      class="btn btn-primary"
+                      >Ver certificado</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              {% endfor %}
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    <!--Fin de About-->
-    <!--Inicio de Proyectos-->
-    <br>
-    <section id="proyects">
+      <!--Fin Contenido-->
+      <!--Contenido extra-->
+      <a href="#" class="btn btn-primary" id="btn-subir">Volver arriba</a>
+      <!--Notificación de Cookies-->
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div
+          id="liveToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <img src="" class="rounded me-2" alt="..." />
+            <strong class="me-auto">Cookies</strong>
+            <small>Ahora</small>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">
+            Al Navegar en este sitio aceptas las Cookies.
+            <br />
+            Esto nos ayuda a seguir mejorando.
+            <a href="" target="_blank">Leer Más.</a>
+          </div>
+        </div>
+      </div>
+      <!--Fin Contenido extra-->
+      <hr />
+      <!--Inicio del Footer-->
+      <br />
       <div class="container">
-        <h2>Proyectos</h2>
-        <div class="container">
-          <p><b>Dejame mostrarte un poco mis proyectos.</b></p>
-        </div>
-        <div class="row"> 
-          <div class="col-sm-4 a">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/scancam.webp' %}" width="" class="card-img-top" alt="logo de scan cam">
-              <div class="card-body">
-                <h3 class="card-title">Scan Cam</h3>
-                <p class="card-text">Scan Cam es una aplicación móvil para el escaneo de códigos QR, de barras y otros tipos.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.stuarddevapps.scancam" target="_blank" class="btn btn-primary">Ver en Google Play Store</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 b">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/mtlibrary.webp' %}" width="" class="card-img-top" alt="logo de librería mtlibrary">
-              <div class="card-body">
-                <h3 class="card-title">MTLibrary</h3>
-                <p class="card-text">Es una libreria de matemáticas en español en Python, para así ayudar a programadores.</p>
-                <a href="https://pypi.org/project/mtlibrary/" target="_blank" class="btn btn-primary">Ver en Pypi</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 c">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/error.webp' %}" width="" class="card-img-top" alt="logo de move file">
-              <div class="card-body">
-                <h3 class="card-title">MoveFile</h3>
-                <p class="card-text">Es una herramienta en código para automatizar el mover archivos por su extensión.</p>
-                <a href="https://github.com/estuardodev/move-file" target="_blank" class="btn btn-primary">Ver en GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3">
-          <img src="{% static 'main/img/githubr.webp' %}" width="" class="card-img-top" alt="Imagen de github repositorios" width="">
-          <div class="card-body">
-            <h3 class="card-title">Más proyectos</h3>
-            <p class="card-text">Si deseas seguir viendo más de mis proyectos o proyectos antiguos, puedes consultar en mi perfil de proyectos de GitHub, ahí encontraras proyectos antiguos como recientes.</p>
-            <a href="https://github.com/estuardodev" target="_blank" class="btn btn-primary">Ver más en GitHub</a>
-          </div>
-        </div>
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a href="#home" class="nav-link px-2 text-muted">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://estuardodev.com/terceros"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Atribuciones</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://twitter.com/estuardodev"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Twitter</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.instagram.com/estuardodev/"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Instagram</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.linkedin.com/in/estuardodev"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Linkedin</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="{% url 'legal:politicas' %}"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Privacidad</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="{% url 'legal:terminos' %}"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Términos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="{% url 'legal:cookies' %}"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >Cookies</a
+              >
+            </li>
+          </ul>
+          <p class="text-center text-muted">
+            © 2023 - 2021 Estuardo Ramírez | estuardodev
+          </p>
+        </footer>
       </div>
-    </section>
-    <!--Fin de Proyectos-->
-  
-    <!--Inicio de Certificaciones-->
-    <br>
-    <section id="certificaciones">
-      <div class="container">
-        <h2>Certificaciones</h2>
-        <div class="container">
-          <p><b>En esta sección encontraras las certificaciones que he obtenido.</b></p>
-        </div>
-        <div class="container">
-          <p>Estas certificaciones son certificadas por la plataforma de educación en línea más grande de Latinoamérica Platzi. <a href="https://platzi.com/blog/que-es-platzi/" target="_blank">Acerca de Platzi</a></p>
-        </div>
-        <br>  
-        <div class="row"> 
+      <!--Fin del footer-->
 
-          {% for i in certificaciones %}
-          
-          <div class="col-sm-4 a">
-            <div class="card" style="width: 18rem;">
-              <img src="{% static 'main/img/' %}{{i.imagen}}" class="card-img-top" alt="Curso profesional de Python Platzi">
-              <div class="card-body">
-                <h5 class="card-title">{{i.titulo}}</h5>
-                  <p class="card-text">{{i.descripcion}}</p>
-                  <a href="{{i.enlace}}" target="_blank" class="btn btn-primary">Ver certificado</a>
-              </div>
-            </div>
-          </div>
+      <!--Inicio Scripts-->
+      <!--Bootstrap Script-->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"
+      ></script>
 
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    <!--Fin de Certificaciones-->
-
-    
-
-    <a href="#" class="btn btn-primary btn-lg" id="btn-subir">Volver arriba</a>
-
-    <hr>
-
-    <!--Notificación de Cookies-->    
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <img src="" class="rounded me-2" alt="...">
-          <strong class="me-auto">Cookies</strong>
-          <small>Ahora</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-          Al Navegar en este sitio aceptas las Cookies.
-          <br>
-          Esto nos ayuda a seguir mejorando. <a href="" target="_blank">Leer Más.</a>
-        </div>
-      </div>
-    </div>    
-
-    <!--Inicio del Footer-->
-    <br>
-    <div class="container">
-      <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#home" class="nav-link px-2 text-muted">Inicio</a></li>
-          <li class="nav-item"><a href="https://estuardodev.com/terceros" target="_blank" class="nav-link px-2 text-muted">Atribuciones</a></li>
-          <li class="nav-item"><a href="https://twitter.com/estuardodev" target="_blank" class="nav-link px-2 text-muted">Twitter</a></li>
-          <li class="nav-item"><a href="https://www.instagram.com/estuardodev/" target="_blank" class="nav-link px-2 text-muted">Instagram</a></li>
-          <li class="nav-item"><a href="https://www.linkedin.com/in/estuardodev" target="_blank" class="nav-link px-2 text-muted">Linkedin</a></li>
-          <li class="nav-item"><a href="{% url 'legal:politicas' %}" target="_blank" class="nav-link px-2 text-muted">Privacidad</a></li>
-          <li class="nav-item"><a href="{% url 'legal:terminos' %}" target="_blank" class="nav-link px-2 text-muted">Términos</a></li>
-          <li class="nav-item"><a href="{% url 'legal:cookies' %}" target="_blank" class="nav-link px-2 text-muted">Cookies</a></li>
-        </ul>
-        <p class="text-center text-muted">© 2023 - 2021 Estuardo Ramírez | estuardodev</p>
-      </footer>
+      <script src="{% static 'main/js/btn.js' %}"></script>
+      <script src="{% static 'main/js/cookie.js'%}"></script>
+      <!--Fin Scripts-->
     </div>
-    <!--Fin del footer-->
-
-    <script src="{% static 'main/js/btn.js' %}"></script>
-    <script src="{% static 'main/js/cookie.js'%}"></script>
-
-    <!--Boostrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>

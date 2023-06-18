@@ -1,0 +1,29 @@
+.img-about {
+  width: 250px;
+  border-radius: 50%;
+  float: right;
+  margin-right: 30px;
+  margin-left: 35px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 766px) {
+  .img-about {
+    float: none;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.style-col {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#btn-subir {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}

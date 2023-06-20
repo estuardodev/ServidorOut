@@ -13,7 +13,7 @@
       <title>{{ a.tittle }}</title>
       <link>https://estuardodev.com{{ a.url }}/{{ a.id }}</link>
       <guid>https://estuardodev.com{{ a.url }}/{{ a.id }}</guid>
-      <description><![CDATA[<a href="https://estuardodev.com{{ a.url }}/{{ a.id }}"><img width="560" height="280" src="https://blog.estuardodev.com/media/{{ a.image }}" alt="{{ a.alt_image }}" align="center" style="display: block;margin: 0 auto 20px;max-width:100%" /></a><p>{{ a.description }}</p>
+      <description><![CDATA[<a href="https://estuardodev.com{{ a.url }}/{{ a.id }}"><img width="560" height="280" src="https://estuardodev.com/media/{{ a.image }}" alt="{{ a.alt_image }}" align="center" style="display: block;margin: 0 auto 20px;max-width:100%" /></a><p>{{ a.description }}</p>
         <p><a href="https://estuardodev.com{{ a.url }}/{{ a.id }}" rel="nofollow">Leer más</a></p>]]></description>
       <pubDate>{{ a.create_date|date:"D, d M Y H:i:s O" }}</pubDate>
     </item>

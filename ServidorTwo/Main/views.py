@@ -70,7 +70,7 @@ def allView(request):
 
 
 def RssView(request):
-    data = Articulo.objects.all()
+    data = Articulo.objects.all().order_by("-id")
 
     context = {
         'data': data,

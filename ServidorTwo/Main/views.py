@@ -1,3 +1,5 @@
+from typing import Any
+from django.db import models
 from django.shortcuts import render, get_object_or_404
 from .models import Articulo
 from django.db.models import Q, Sum
@@ -69,16 +71,12 @@ def allView(request):
     return render(request, template_name, context)
 
 
-def RssView(request):
-    data = Articulo.objects.exclude(id=1).order_by("-id")[:20]
-
-    context = {
-        'data': data,
-    }
-
-    xml_content = render_to_string('rss.xml', context)
-
-    return HttpResponse(xml_content, content_type='text/xml')
+class RssView(generic.TemplateView):
+    template_name = 'rss.xml'
+    context_object_name = 'data'
+    content_type='text/xml'
+    def get_queryset(self):
+        return Articulo.objects.exclude(id=1).order_by("-id")[:20]
 
 class Error404View(generic.TemplateView):
     template_name = "error/404/404.html"

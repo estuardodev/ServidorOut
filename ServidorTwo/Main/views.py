@@ -71,7 +71,7 @@ def allView(request):
     return render(request, template_name, context)
 
 
-class RssView(generic.TemplateView):
+class RssView(generic.ListView):
     template_name = 'rss.xml'
     context_object_name = 'data'
     content_type='text/xml'

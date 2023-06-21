@@ -8,7 +8,11 @@ from .models import Portafolio, Habilidades, Certificaciones, Proyectos
 def IndexView(request):
     template_name = "main/index.html"
 
-    portafolio = Portafolio.objects.get(id=1)
+    try:
+        portafolio = Portafolio.objects.get(id=1)
+    except:
+        portafolio = {"texto_largo": "Objeto no encontrado", "imagen":"Imagen no encontrada"}
+
     habilidades = Habilidades.objects.all()
     certificaciones = Certificaciones.objects.all()
     proyectos = Proyectos.objects.all()

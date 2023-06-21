@@ -63,36 +63,87 @@
 
 
 
-        <!--MENUS-->
-        <div class="container"> 
-
-                {% if all %}
-                    {% block contents %}
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Busqueda</th>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Vistas</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for a in all %}
-                                    {% if a.id is not no %}
-                                    <tr>
-                                        <th scope="row">{{a.id}}</th>
-                                        <td><a href="{{a.url}}/{{a.id}}">{{a.tittle}}</a></td>
-                                        <td>{{a.date_create}}</td>
-                                        <td>{{a.visits}}</td>
-                                    </tr>
-                                    {% endif %}
-                                {% endfor %}
-                            </table>
-                        
-                    {% endblock  %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            
+            <form class="d-flex" role="filter" method="GET">
+                <button class="nav-link {% if all_active == True %}active{% endif %}" name="filter" value="all" type="submit">Todos</button>
+            </form>
+            
+            
+          </li>
+          <li class="nav-item">
+            <form class="d-flex" role="filter" method="GET">
+                <button class="nav-link {% if recent_active == True %}active{% endif %}" name="filter" value="recent" type="submit">Recientes</button>
+            </form>
+          </li>
+          <li class="nav-item">
+            <form class="d-flex" role="filter" method="GET">
+                <button class="nav-link {% if popular_active == True %}active{% endif %}" name="filter" value="popular" type="submit">Populares</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="articles">
+            <table class="table" id="articlesTable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Búsqueda</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Vistas</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for a in all %}
+                {% if a.id is not no %}
+                <tr class="article-row {% if a.recent %}recent{% endif %} {% if a.popular %}popular{% endif %}">
+                  <th scope="row">{{a.id}}</th>
+                  <td><a href="{{a.url}}/{{a.id}}">{{a.tittle}}</a></td>
+                  <td>{{a.date_create}}</td>
+                  <td>{{a.visits}}</td>
+                </tr>
                 {% endif %}
-            </div>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function filterArticles(link) {
+      let filterOption = link.dataset.filter;
+  
+      fetch(`{% url 'main:all' %}?filter=${filterOption}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+          
 
 
 

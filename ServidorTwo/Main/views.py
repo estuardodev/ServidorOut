@@ -60,15 +60,32 @@ def ArticuloView(request, url: str, id: int):
     return render(request, template_name, context)
 
 
+from django.http import JsonResponse
+from django.core import serializers
+from .models import Articulo
+
+from django.http import JsonResponse
+from django.core import serializers
+from .models import Articulo
+from django.forms.models import model_to_dict
+
 def allView(request):
     template_name = "blog/all.html"
-    # Obtener registros de la base de datos
-    articulos = Articulo.objects.filter(status=True).order_by('-id')
     no = 1
 
-    # Retorno del template
-    context = {'all': articulos, 'no': no}
+    filters = request.GET.get('filter')
+    if filters == 'recent':
+        articulos = Articulo.objects.filter(status=True).order_by('-date_create')
+        context = {'all': articulos, 'no': no, 'recent_active':True} # Retorno del template
+    elif filters == 'popular':
+        articulos = Articulo.objects.filter(status=True).order_by('-visits')
+        context = {'all': articulos, 'no': no, 'popular_active':True} # Retorno del template
+    else:
+        articulos = Articulo.objects.filter(status=True).order_by('-id')
+        context = {'all': articulos, 'no': no, 'all_active':True} # Retorno del template
+
     return render(request, template_name, context)
+
 
 
 class RssView(generic.ListView):

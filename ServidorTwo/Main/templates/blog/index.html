@@ -126,9 +126,13 @@
                             
                             <div class="col dark">
                                 <div class="card h-100">
-                                    <img src="media/{{a.image}}" class="card-img-top" alt="{{a.alt_image}}">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <img src="media/{{a.image}}" class="embed-responsive-item img-fluid" alt="{{a.alt_image}}">
+                                      </div>
                                     <div class="card-body dark">
                                         <h5 class="card-title dark-mode">{{ a.tittle }}</h5>
+                                        <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{a.description}}</p>
+
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted dark-mode">Creado: {{a.date_create}}</small>

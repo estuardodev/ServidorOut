@@ -1,10 +1,6 @@
-from typing import Any
-from django.db import models
 from django.shortcuts import render, get_object_or_404
 from .models import Articulo
 from django.db.models import Q, Sum
-from django.http import HttpResponse
-from django.template.loader import render_to_string
 from django.views import generic
 
 
@@ -15,7 +11,7 @@ def IndexView(request):
     template_name = "blog/index.html"
 
     # Obtener registros de DB
-    package_articulos = Articulo.objects.filter(status=True).exclude(id=1).order_by('-id')[:6]  # Se obtienen y se ordenan del último al primero
+    package_articulos = Articulo.objects.filter(status=True).exclude(id=1).order_by('-id')[:30]  # Se obtienen y se ordenan del último al primero
     all_articulos = Articulo.objects.filter(status=True).exclude(id=1).order_by('-id')
     totales_visitas = package_articulos.aggregate(Sum('visits'))['visits__sum']
 
@@ -34,8 +30,6 @@ def IndexView(request):
     # Renderización del template normalmente
     context = {'articulos': package_articulos, 'totales_visitas': totales_visitas}
     return render(request, template_name, context)
-
-
 
 def ArticuloView(request, url: str, id: int):
     template_name = "blog/articulo/articulo.html"
@@ -69,7 +63,6 @@ def ArticuloView(request, url: str, id: int):
     
     return render(request, template_name, context)
 
-
 def allView(request):
     template_name = "blog/all.html"
     no = 1
@@ -86,8 +79,6 @@ def allView(request):
         context = {'all': articulos, 'no': no, 'all_active':True} # Retorno del template
 
     return render(request, template_name, context)
-
-
 
 class RssView(generic.ListView):
     template_name = 'rss.xml'

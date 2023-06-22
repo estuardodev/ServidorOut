@@ -124,25 +124,33 @@ crossorigin="anonymous"></script>
             {% endblock  %}
         {% endif %}
         {% if search %}
-            {% block contents %}
+            
                 <div class="container">
                     <table class="table">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Busqueda</th>
+                            <th scope="col">Fecha</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for a in search %}
-                        <tr>
-                            <th scope="row">{{a.id}}</th>
-                            <td><a href="{{a.url}}/{{a.id}}">{{a.tittle}}</a></td>
-                        </tr>
-                        {% endfor %}
+                        {% if not search == "No Encontrado" %}
+                            {% for a in search %}
+                                <tr>
+                                    <th scope="row">{{ a.id }}</th>
+                                    <td><a href="{{ a.url }}/{{ a.id }}">{{ a.tittle }}</a></td>
+                                    <td>{{ a.date_create }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="3">No se encontraron elementos.</td>
+                            </tr>
+                        {% endif %}
                     </table>
                 </div>
-            {% endblock  %}
+    
         {% endif %}
         
 

@@ -8,36 +8,40 @@ from django.template.loader import render_to_string
 from django.views import generic
 
 
+# Create your functions here.
+
 # Create your views here.
 def IndexView(request):
     template_name = "blog/index.html"
 
     # Obtener registros de DB
-    articulos = Articulo.objects.filter(status=True).order_by('-id')  # Se obtienen y se ordenan del último al primero
-    articulos_count = articulos.count()  # Se cuenta cuántos artículos hay
-    totales_visitas = articulos.aggregate(Sum('visits'))['visits__sum']
-    img = Articulo.objects.filter(id=1)  # Imagen de la pestaña
-    resta = articulos_count - 6  # Resta para artículos a mostrar
+    package_articulos = Articulo.objects.filter(status=True).exclude(id=1).order_by('-id')[:6]  # Se obtienen y se ordenan del último al primero
+    all_articulos = Articulo.objects.filter(status=True).exclude(id=1).order_by('-id')
+    totales_visitas = package_articulos.aggregate(Sum('visits'))['visits__sum']
 
     # Verificación de si el usuario realiza una búsqueda
     search = request.GET.get('search')
     if search:
-        articulo1 = articulos.filter(Q(tittle__icontains=search) | Q(tags__icontains=search) | Q(create__icontains=search)).distinct()
+        search_articulo = all_articulos.filter(Q(tittle__icontains=search) | Q(tags__icontains=search) | Q(create__icontains=search)).distinct()
         # Renderización si el usuario realizó una búsqueda
-        context = {'search': articulo1, 'articulos': articulo1}
+        context = {'search': search_articulo, 'totales_visitas': totales_visitas}
+        if not search_articulo:
+            context = {'search': "No Encontrado", 'totales_visitas': totales_visitas}
+        else:
+            context = {'search': search_articulo, 'totales_visitas': totales_visitas}
         return render(request, template_name, context)
 
     # Renderización del template normalmente
-    context = {'articulos': articulos, 'resta': resta, 'img': img, 'totales_visitas': totales_visitas}
+    context = {'articulos': package_articulos, 'totales_visitas': totales_visitas}
     return render(request, template_name, context)
 
 
 
 def ArticuloView(request, url: str, id: int):
+    template_name = "blog/articulo/articulo.html"
+
     # Verificamos que el id solicitado sea correcto
     articulo_right = get_object_or_404(Articulo, pk=id, status=True)
-
-    template_name = "blog/articulo/articulo.html"
 
     # Guardar visita
     articulo = Articulo.objects.get(pk=id)
@@ -47,27 +51,24 @@ def ArticuloView(request, url: str, id: int):
     # Verificación de si el usuario realiza una búsqueda
     search = request.GET.get('search')
     if search:
-        articulo1 = Articulo.objects.filter(
+        search_articulo = Articulo.objects.filter(
             Q(tittle__icontains=search) |
             Q(tags__icontains=search) |
             Q(create__icontains=search),
             status=True
         ).distinct()
-        context = {'search': articulo1}
+        context = {'search': search_articulo}
+
+        if not search_articulo:
+            context = {'search': "No Encontrado"}
+        else:
+            context = {'search': search_articulo}
+        
     else:
         context = {'articulo': articulo}
     
     return render(request, template_name, context)
 
-
-from django.http import JsonResponse
-from django.core import serializers
-from .models import Articulo
-
-from django.http import JsonResponse
-from django.core import serializers
-from .models import Articulo
-from django.forms.models import model_to_dict
 
 def allView(request):
     template_name = "blog/all.html"
@@ -93,7 +94,7 @@ class RssView(generic.ListView):
     context_object_name = 'data'
     content_type='text/xml'
     def get_queryset(self):
-        return Articulo.objects.exclude(id=1).order_by("-id")[:20]
+        return Articulo.objects.filter(status=True).exclude(id=1).order_by("-id")[:20]
 
 class Error404View(generic.TemplateView):
     template_name = "error/404/404.html"

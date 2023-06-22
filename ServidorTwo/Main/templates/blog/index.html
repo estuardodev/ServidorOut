@@ -123,7 +123,7 @@
                 {% if articulos %}
                     {% block Listas %}
                         {% for a in articulos %}
-                            {% if a.id > resta %}
+                            
                             <div class="col dark">
                                 <div class="card h-100">
                                     <img src="media/{{a.image}}" class="card-img-top" alt="{{a.alt_image}}">
@@ -136,7 +136,7 @@
                                     <a href="{{a.url}}/{{a.id}}" class="btn btn-primary">Leer más</a>
                                 </div>
                             </div>
-                            {% endif %}
+                            
                         {% endfor %}
             
                         
@@ -147,23 +147,29 @@
                         
                     {% block contents %}
 
-                            <table class="table">
-                                <thead>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Busqueda</th>
+                            <th scope="col">Fecha</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% if not search == "No Encontrado" %}
+                            {% for a in search %}
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Busqueda</th>
-                                    <th scope="col">Fecha</th>
+                                    <th scope="row">{{ a.id }}</th>
+                                    <td><a href="{{ a.url }}/{{ a.id }}">{{ a.tittle }}</a></td>
+                                    <td>{{ a.date_create }}</td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                {% for a in search %}
-                                <tr>
-                                    <th scope="row">{{a.id}}</th>
-                                    <td><a href="{{a.url}}/{{a.id}}">{{a.tittle}}</a></td>
-                                    <td>{{a.date_create}}</td>
-                                </tr>
-                                {% endfor %}
-                            </table>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="3">No se encontraron elementos.</td>
+                            </tr>
+                        {% endif %}
+                    </table>
                         
                     {% endblock  %}
                 {% endif %}
